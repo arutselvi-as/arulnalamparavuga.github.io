@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Form to Image</title>
+  <style>
+    #canvas {
+      border: 1px solid black;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <form id="myForm">
+    <label for="name">1. பெயர்:</label><br>
+    <input type="text" id="name" name="1. பெயர்"><br>
+    <label for="email">2. சைவமா (அ) அசைவமா:</label><br>
+    <input type="text" id="email" name="2. சைவமா (அ) அசைவமா"><br>
+    <label for="field1">3. ஊர் :</label><br>
+    <input type="text" id="field1" name="3. ஊர்"><br>
+    <label for="field2">4. வயது :</label><br>
+    <input type="text" id="field2" name="4. வயது"><br>
+    <label for="field3">5. தொலைபேசி எண் :</label><br>
+    <input type="text" id="field3" name="5. தொலைபேசி எண்"><br>
+    <label for="field4">6. நீங்கள் பேசன்டா அல்லது பதிவுசெய்து மருந்து வாங்கி தருபவரா :</label><br>
+    <input type="text" id="field4" name="6. நீங்கள் பேசன்டா (அ) மருந்து வாங்கி தருபவரா"><br>
+    <label for="field5">7. பேசண்ட் இல்லாத பட்சத்தில் அவர்கள் உங்களுக்கு என்ன உறவு முறை :</label><br>
+    <input type="text" id="field5" name="7. பேசண்ட் அவர்கள் உங்களுக்கு என்ன உறவு முறை"><br>
+    <label for="field6">8. என்ன நோய் மற்றும் அதன் ரிப்போர்ட் :</label><br>
+    <input type="text" id="field6" name="8. என்ன நோய் மற்றும் அதன் ரிப்போர்ட்"><br>
+    <label for="field7">9. புதிய நபரா (அ) பழைய நபரா :</label><br>
+    <input type="text" id="field7" name="9. புதிய நபரா (அ) பழைய நபரா"><br>
+    <label for="field8">10. எவ்வளவு நாட்களாக ஐயா அவர்களிடம் அருட்பிரசாதம் வாங்கி வருகிறீர்கள் :</label><br>
+    <input type="text" id="field8" name="10. எவ்வளவு நாட்களாக அருட்பிரசாதம் வாங்கி வருகிறீர்கள்"><br>
+    <label for="field9">11. சென்னையில் மருந்தை நீங்களே வாங்கிக் கொள்ள முடியுமா? :</label><br>
+    <input type="text" id="field9" name="11. சென்னையில் மருந்தை வாங்கிக் கொள்ள முடியுமா?"><br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <canvas id="canvas" style="display: none;"></canvas>
+
+  <script>
+    const form = document.getElementById('myForm');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Calculate the required canvas height based on the number of fields
+      const inputs = form.querySelectorAll('input[type="text"]');
+      const canvasHeight = inputs.length * 30 + 40; // 30px per field + extra space
+      const canvasWidth = 1026;
+
+      // Set the canvas dimensions
+      canvas.height = canvasHeight;
+      canvas.width = canvasWidth;
+
+      // Clear the canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw the form data on the canvas
+      ctx.font = '18px Arial';
+      let y = 30;
+      inputs.forEach((input) => {
+        const x = input.name.length > 5 ? 20 : 10;
+        ctx.fillText(`${input.name}: ${input.value}`, x, y);
+        y += 30;
+      });
+
+      // Create a download link
+      const a = document.createElement('a');
+      a.href = canvas.toDataURL('image/png');
+      a.download = 'form.png';
+      a.click();
+
+      // Clear the form after downloading
+      form.reset();
+    });
+  </script>
+</body>
+</html>
