@@ -2,38 +2,51 @@
 <html>
 <head>
   <title>Simple Form to Image</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     #canvas {
       border: 1px solid black;
       margin-top: 20px;
     }
+	form{
+	border: 2px solid yellow;
+	padding : 20px;
+	margin-top: 100px;
+      margin-bottom: 100px;
+   margin-right: 50px;
+   margin-left: 50px;
+	}
+	@media screen and (max-width: 600px) {
+  .left, .main, .right {
+    width: 100%; 
+  }
   </style>
 </head>
 <body>
-  <form id="myForm">
-    <label for="name">1. பெயர்:</label><br>
+  <form id="myForm" align="justify">
+    <label for="name">1. பெயர்:</label>
     <input type="text" id="name" name="1. பெயர்"><br>
-    <label for="email">2. சைவமா (அ) அசைவமா:</label><br>
+    <label for="email">2. சைவமா (அ) அசைவமா:</label>
     <input type="text" id="email" name="2. சைவமா (அ) அசைவமா"><br>
-    <label for="field1">3. ஊர் :</label><br>
+    <label for="field1">3. ஊர் :</label>
     <input type="text" id="field1" name="3. ஊர்"><br>
-    <label for="field2">4. வயது :</label><br>
+    <label for="field2">4. வயது :</label>
     <input type="text" id="field2" name="4. வயது"><br>
-    <label for="field3">5. தொலைபேசி எண் :</label><br>
+    <label for="field3">5. தொலைபேசி எண் :</label>
     <input type="text" id="field3" name="5. தொலைபேசி எண்"><br>
-    <label for="field4">6. நீங்கள் பேசன்டா அல்லது பதிவுசெய்து மருந்து வாங்கி தருபவரா :</label><br>
+    <label for="field4">6. நீங்கள் பேசன்டா அல்லது பதிவுசெய்து மருந்து வாங்கி தருபவரா :</label>
     <input type="text" id="field4" name="6. நீங்கள் பேசன்டா (அ) மருந்து வாங்கி தருபவரா"><br>
-    <label for="field5">7. பேசண்ட் இல்லாத பட்சத்தில் அவர்கள் உங்களுக்கு என்ன உறவு முறை :</label><br>
+    <label for="field5">7. பேசண்ட் இல்லாத பட்சத்தில் அவர்கள் உங்களுக்கு என்ன உறவு முறை :</label>
     <input type="text" id="field5" name="7. பேசண்ட் அவர்கள் உங்களுக்கு என்ன உறவு முறை"><br>
-    <label for="field6">8. என்ன நோய் மற்றும் அதன் ரிப்போர்ட் :</label><br>
+    <label for="field6">8. என்ன நோய் மற்றும் அதன் ரிப்போர்ட் :</label>
     <input type="text" id="field6" name="8. என்ன நோய் மற்றும் அதன் ரிப்போர்ட்"><br>
-    <label for="field7">9. புதிய நபரா (அ) பழைய நபரா :</label><br>
+    <label for="field7">9. புதிய நபரா (அ) பழைய நபரா :</label>
     <input type="text" id="field7" name="9. புதிய நபரா (அ) பழைய நபரா"><br>
-    <label for="field8">10. எவ்வளவு நாட்களாக ஐயா அவர்களிடம் அருட்பிரசாதம் வாங்கி வருகிறீர்கள் :</label><br>
+    <label for="field8">10. எவ்வளவு நாட்களாக ஐயா அவர்களிடம் அருட்பிரசாதம் வாங்கி வருகிறீர்கள் :</label>
     <input type="text" id="field8" name="10. எவ்வளவு நாட்களாக அருட்பிரசாதம் வாங்கி வருகிறீர்கள்"><br>
-    <label for="field9">11. சென்னையில் மருந்தை நீங்களே வாங்கிக் கொள்ள முடியுமா? :</label><br>
+    <label for="field9">11. சென்னையில் மருந்தை நீங்களே வாங்கிக் கொள்ள முடியுமா? :</label>
     <input type="text" id="field9" name="11. சென்னையில் மருந்தை வாங்கிக் கொள்ள முடியுமா?"><br>
-    <input type="submit" value="Submit">
+    <br><input type="submit" value="Submit">
   </form>
 
   <canvas id="canvas" style="display: none;"></canvas>
