@@ -2,47 +2,83 @@
 <html>
 <head>
   <title>Simple Form to Image</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    #myForm {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="text"] {
+      width: calc(100% - 20px);
+      padding: 5px;
+      font-size: 16px;
+      margin-top: 5px;
+    }
+    input[type="submit"] {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
     #canvas {
       border: 1px solid black;
       margin-top: 20px;
+      display: none;
     }
-	form{
-	border: 2px solid yellow;
-	padding : 500px;
-		}
-	@media screen and (max-width: 800px) {
-  .left, .main, .right {
-    width: 100%; 
-  }
   </style>
 </head>
 <body>
-  <form id="myForm" align="justify">
+  <form id="myForm">
     <label for="name">1. பெயர்:</label>
     <input type="text" id="name" name="1. பெயர்"><br>
+
     <label for="email">2. சைவமா (அ) அசைவமா:</label>
     <input type="text" id="email" name="2. சைவமா (அ) அசைவமா"><br>
+
     <label for="field1">3. ஊர் :</label>
     <input type="text" id="field1" name="3. ஊர்"><br>
+
     <label for="field2">4. வயது :</label>
     <input type="text" id="field2" name="4. வயது"><br>
+
     <label for="field3">5. தொலைபேசி எண் :</label>
     <input type="text" id="field3" name="5. தொலைபேசி எண்"><br>
+
     <label for="field4">6. நீங்கள் பேசன்டா அல்லது பதிவுசெய்து மருந்து வாங்கி தருபவரா :</label>
     <input type="text" id="field4" name="6. நீங்கள் பேசன்டா (அ) மருந்து வாங்கி தருபவரா"><br>
+
     <label for="field5">7. பேசண்ட் இல்லாத பட்சத்தில் அவர்கள் உங்களுக்கு என்ன உறவு முறை :</label>
     <input type="text" id="field5" name="7. பேசண்ட் அவர்கள் உங்களுக்கு என்ன உறவு முறை"><br>
+
     <label for="field6">8. என்ன நோய் மற்றும் அதன் ரிப்போர்ட் :</label>
     <input type="text" id="field6" name="8. என்ன நோய் மற்றும் அதன் ரிப்போர்ட்"><br>
+
     <label for="field7">9. புதிய நபரா (அ) பழைய நபரா :</label>
     <input type="text" id="field7" name="9. புதிய நபரா (அ) பழைய நபரா"><br>
+
     <label for="field8">10. எவ்வளவு நாட்களாக ஐயா அவர்களிடம் அருட்பிரசாதம் வாங்கி வருகிறீர்கள் :</label>
     <input type="text" id="field8" name="10. எவ்வளவு நாட்களாக அருட்பிரசாதம் வாங்கி வருகிறீர்கள்"><br>
+
     <label for="field9">11. சென்னையில் மருந்தை நீங்களே வாங்கிக் கொள்ள முடியுமா? :</label>
     <input type="text" id="field9" name="11. சென்னையில் மருந்தை வாங்கிக் கொள்ள முடியுமா?"><br>
-    <br><input type="submit" value="Submit">
+
+    <input type="submit" value="Submit">
   </form>
 
   <canvas id="canvas" style="display: none;"></canvas>
@@ -78,8 +114,8 @@
 
       // Create a download link
       const a = document.createElement('a');
-      a.href = canvas.toDataURL('image/png');
-      a.download = 'form.png';
+      a.href = canvas.toDataURL('image/jpeg');
+      a.download = 'form.jpeg';
       a.click();
 
       // Clear the form after downloading
